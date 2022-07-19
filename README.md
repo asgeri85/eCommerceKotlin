@@ -15,6 +15,7 @@
  - Gson
  - Data Binding
  - View Binding
+ - Lottie
  
 ## Screens
 
