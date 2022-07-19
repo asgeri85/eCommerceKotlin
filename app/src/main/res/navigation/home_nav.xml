@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home_nav"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.eticaretnative.ui.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_productsFragment"
+            app:destination="@id/productsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_basketFragment"
+            app:destination="@id/basketFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/productsFragment"
+        android:name="com.example.eticaretnative.ui.products.ProductsFragment"
+        android:label="fragment_products"
+        tools:layout="@layout/fragment_products" >
+        <argument
+            android:name="category"
+            app:argType="string"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_productsFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.example.eticaretnative.ui.detail.DetailFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail" >
+        <argument
+            android:name="product"
+            app:argType="com.example.eticaretnative.model.ProductResponseModel"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_detailFragment_to_basketFragment"
+            app:destination="@id/basketFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/basketFragment"
+        android:name="com.example.eticaretnative.ui.basket.BasketFragment"
+        android:label="fragment_basket"
+        tools:layout="@layout/fragment_basket" >
+        <action
+            android:id="@+id/action_basketFragment_to_cardBottomFragment"
+            app:destination="@id/cardBottomFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/cardBottomFragment"
+        android:name="com.example.eticaretnative.ui.basket.CardBottomFragment"
+        android:label="fragment_card_bottom"
+        tools:layout="@layout/fragment_card_bottom" >
+        <action
+            android:id="@+id/action_cardBottomFragment_to_successFragment"
+            app:destination="@id/successFragment" />
+    </dialog>
+    <fragment
+        android:id="@+id/successFragment"
+        android:name="com.example.eticaretnative.ui.basket.SuccessFragment"
+        android:label="fragment_success"
+        tools:layout="@layout/fragment_success" />
+</navigation>
